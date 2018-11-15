@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "name": "minion1",
+    "image": "https://images.eprice.it/nobrand/0/hres/050/201192050/8070622.jpg",
+    "value": 0
+  },
+  {
+    "id": 2,
+    "name": "minion2",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjfBVKjOiUXeBSuk-CujXFGKGWasWfYbIbs_KBwceg8AMfsw0_"
+  },
+  {
+    "id": 3,
+    "name": "minion3",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81JiaPfWb7L._SL1500_.jpg"
+  },
+  {
+    "id": 4,
+    "name": "minion4",
+    "image": "https://i5.walmartimages.com/asr/e3c77ba0-95ea-4686-b826-298ed2c9491b_1.256acfb4329743ed6a71246cbdb854ee.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF"
+  },
+  {
+    "id": 5,
+    "name": "minion5",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81KtuIGnfaL._SX466_.jpg"
+  },
+  {
+    "id": 6,
+    "name": "minion6",
+    "image": "https://www.bbtoystore.com/mm5/funko/FKO_MM_DM_kevin_06.jpg"
+  },
+  {
+    "id": 7,
+    "name": "minion7",
+    "image": "https://i.pinimg.com/originals/ee/fd/4d/eefd4d45c0cd9dd7f3d86b4b49e7fc72.png"
+  },
+  {
+    "id": 8,
+    "name": "minion8",
+    "image": "https://images-eu.ssl-images-amazon.com/images/I/71zB77Y8m%2BL.png"
+  }
+]
+
+
