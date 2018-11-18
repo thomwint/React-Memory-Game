@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+A memory game based in React!!! Your goal: Select each minion once and only once. Each time a minion is selected, the minions switch places. What is the best score you can get? Click and try out.
+
+App: https://boiling-island-15590.herokuapp.com/
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
