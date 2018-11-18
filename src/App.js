@@ -1,5 +1,5 @@
 import React from "react";
-import GameArea from "../src/components/GameArea";
+import GameArea from "../src/components/GameArea/GameArea";
 
 const App = props => <GameArea />;
 

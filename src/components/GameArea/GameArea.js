@@ -1,56 +1,62 @@
 import React, { Component } from "react";
-import minions from "./minions.json";
+import minions from "../../minions.json";
+import GameContainer from "../GameContainer/GameContainer";
+import NavBar from "../NavBar/NavBar";
+import Wrapper from "../Wrapper/Wrapper";
+import MinionsCard from "../MinionsCard/index.js";
 
 class GameArea extends Component {
-  //setting this.state.image to equal the images json array:
   state = {
     minions,
     score: 0,
     topScore: 0,
+    left: 7
   };
 
   componenetDidMount() {
     this.setState({
-      image: this.RandomizeMinionOrder(this.state.minions.image)
+      minions: this.RandomizeMinionOrder(this.state.minions)
     });
   };
 
   // Random Array sorter for Minion pictures
-  RandomizeMinionOrder = image => {
-    let currentIndex = minions.image.length - 1;
+  RandomizeMinionOrder = images => {
+    let currentIndex = images.length - 1;
     while (currentIndex > 0) {
       const randomNum = Math.floor(Math.random() * (currentIndex + 1));
-      const lastIndex = image[currentIndex];
-      image[currentIndex] = image[randomNum];
-      image[randomNum] = lastIndex;
+      const lastIndex = images[currentIndex];
+      images[currentIndex] = images[randomNum];
+      images[randomNum] = lastIndex;
       currentIndex--;
     }
-    return image;
+    return images;
   };
   
   // Handle the incorrect guesses
   IncorrectGuess = image => {
     this.setState({
-      image: this.reset(image),
+      minions: this.reset(image),
       score: 0
     });
   };
 
   // Handle the correct guesses
-  CorrectGuess = remainingImage => {
-    const { topScore, score } = this.state;
+  CorrectGuess = remainingImages => {
+    const { topScore, score, left } = this.state;
     const increaseScore = score + 1;
     const newTopScore = increaseScore > topScore ? increaseScore : topScore;
+    const newLeft = left -1;
     this.setState({
-      images: this.RandomizeMinionOrder(remainingImage),
+      minions: this.RandomizeMinionOrder(remainingImages),
       score: increaseScore,
       topScore: newTopScore,
+      left: newLeft
     });
   };
 
   WinGame = image => {
     this.setState ({
-      images: this.reset(image),
+      minions: this.reset(image),
       score: 0
     })
   }
@@ -64,15 +70,15 @@ class GameArea extends Component {
   ItemClick = id => {
     let correctGuess = false;
     
-    const imagesLeft = this.state.minions.image.map(item => {
+    const imagesLeft = this.state.minions.map(item => {
       const newItem = { ...item };
       if (newItem.id === id) {
         if(!newItem.clicked) {
           newItem.clicked = true;
           correctGuess = true;
 
-          if(this.state.score === 8) {
-            return this.WinGame(this.state.minions.image)
+          if(this.state.score === 12) {
+            return this.WinGame(this.state.minions)
           }
         }
       }
@@ -84,23 +90,23 @@ class GameArea extends Component {
   render() {
     return (
     <div>
-      <Nav score={this.state.score} topScore={this.state.topScore} />
-      <Header/>
+      <NavBar score={this.state.score} topScore={this.state.topScore} />
+      <Wrapper/>
 
-      <Container className="game-board">
-        {this.state.images.map(item => (      
-          <PicButton
+      <GameContainer>
+        
+        {this.state.minions.map(item => (    
+          <MinionsCard  
             key={item.id}
             id={item.id}
             name={item.name}
             image={item.image}
-            handleClick={this.handleItemClick}
-            gameOver={this.state.lives !== 0 && this.state.topScore}
+            ItemClick={this.ItemClick}
+            gameOver={this.state.topScore === 8}
           />
         ))}
-      </Container>
+      </GameContainer>
 
-      <Footer/>
     </div>
     );
 
