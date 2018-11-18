@@ -38,6 +38,26 @@
     "id": 8,
     "name": "minion8",
     "image": "https://images-eu.ssl-images-amazon.com/images/I/71zB77Y8m%2BL.png"
+  },
+  {
+    "id": 9,
+    "name": "minion9",
+    "image": "https://www.robedacartoon.it/90574-thickbox_default/minions-sagoma-cartonata-di-minion-carcerato.jpg"
+  },
+  {
+    "id": 10,
+    "name": "minion10",
+    "image": "https://www.akkuline.de/images/bild500/minions-spielfigur--nachtlicht_15217.jpg"
+  },
+  {
+    "id": 11,
+    "name": "minion11",
+    "image": "https://pngimg.com/uploads/minions/minions_PNG13.png"
+  },
+  {
+    "id": 12,
+    "name": "minion12",
+    "image": "https://www.123-stickers.com/7208-7595-thickbox/sticker-minion-gangster.jpg"
   }
 ]
 

@@ -10,7 +10,6 @@ class GameArea extends Component {
     minions,
     score: 0,
     topScore: 0,
-    left: 7
   };
 
   componenetDidMount() {
@@ -36,22 +35,28 @@ class GameArea extends Component {
   IncorrectGuess = image => {
     this.setState({
       minions: this.reset(image),
-      score: 0
+      score: 0,
     });
+    alert('OH NO, YOU LOST! TRY AGAIN.')
   };
 
   // Handle the correct guesses
   CorrectGuess = remainingImages => {
-    const { topScore, score, left } = this.state;
+    let { topScore, score } = this.state;
     const increaseScore = score + 1;
     const newTopScore = increaseScore > topScore ? increaseScore : topScore;
-    const newLeft = left -1;
     this.setState({
       minions: this.RandomizeMinionOrder(remainingImages),
       score: increaseScore,
       topScore: newTopScore,
-      left: newLeft
     });
+    if(newTopScore === 12 ) {
+      alert('YOU WIN - CLICK ANY PICTURE TO START AGAIN');
+      this.setState({
+        score: 0,
+        topScore: 0
+      })
+    }
   };
 
   WinGame = image => {
@@ -78,8 +83,9 @@ class GameArea extends Component {
           correctGuess = true;
 
           if(this.state.score === 12) {
-            return this.WinGame(this.state.minions)
+            return this.WinGame(this.state.minions);
           }
+          
         }
       }
       return newItem;
@@ -90,8 +96,9 @@ class GameArea extends Component {
   render() {
     return (
     <div>
-      <NavBar score={this.state.score} topScore={this.state.topScore} />
+      
       <Wrapper/>
+      <NavBar score={this.state.score} topScore={this.state.topScore} />
 
       <GameContainer>
         
@@ -102,7 +109,6 @@ class GameArea extends Component {
             name={item.name}
             image={item.image}
             ItemClick={this.ItemClick}
-            gameOver={this.state.topScore === 8}
           />
         ))}
       </GameContainer>

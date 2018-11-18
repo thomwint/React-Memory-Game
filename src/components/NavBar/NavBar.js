@@ -5,15 +5,9 @@ const NavBar = props => {
     <nav className="navbar">
         <ul>
             <li>
-                <p>Minions Game</p>
-            </li>
-            {/* <li>
-                <ScoreCounter score={props.score} topScore={props.topScore} />
-            </li> */}
-            <li>
-                <p>
+                <h3>
                     Score: {props.score}  ||  Personal Top Score: {props.topScore}
-                </p>
+                </h3>
             </li>
         </ul>
     </nav>
